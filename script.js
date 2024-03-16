@@ -79,7 +79,7 @@ const getUserCoordinates = () => {
     navigator.geolocation.getCurrentPosition(
         postion => {
             const {latitude, longitude} = postion.coords
-            const REVERSE_GEOCODING_URL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+            const REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
             fetch(REVERSE_GEOCODING_URL).then(res => res.json()).then(data => {
                 if(!data.length) return alert(`No coordinates found for ${cityName} `)
                 const {name} = data[0];
